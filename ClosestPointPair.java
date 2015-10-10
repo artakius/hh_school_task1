@@ -16,7 +16,12 @@ import java.util.*;
 public class ClosestPointPair {
 public static void main(String args[]) 
 {
-    try ( FileReader fr = new FileReader("C:\\MyJava\\hhTask1\\Points100000.txt"))
+    System.out.println("Введите полный путь к файлу. Для выхода из программы введите q");
+    Scanner sin = new Scanner(System.in);
+    String file = sin.nextLine();
+    if(file.compareTo("q")==0) return;
+    
+    try ( FileReader fr = new FileReader(file))//("C:\\MyJava\\hhTask1\\Points100000.txt"))
     {
         BufferedReader in = new BufferedReader(fr);
         String str;
@@ -36,7 +41,9 @@ public static void main(String args[])
 //        System.out.println(Math.sqrt(Algs.SimplAlg(plist)));
     } 
     catch(IOException e) {
+        
         System.out.println("I/O Error: " + e);
+        main(args);
     }
 }
 }
